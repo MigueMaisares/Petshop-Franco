@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/bd2f9cbaf2.js" crossorigin="anonymous"></script>
+    <title>Juguetes Petshop Franco</title>
+</head>
+<body>
+    <div class="container-fluid" id="app">
+        <header class="row card-header align-items-center text-center bg-success">
+            <img class="col-1" src="./assets/LOGO-Schnauzer.png" alt="banner">
+            <div class="col-10">
+                <h1 class="text-shadow">PETSHOP "Franco"</h1>
+            </div>
+        </header>    
+        
+        <nav class="row navbar navbar-expand-sm navbar-light bg-success p-2 text-dark bg-opacity-10">
+            <div class="container-fluid">        
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span ><i class="fas fa-paw"></i></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="./index.html"><i class="fas fa-home"></i> INICIO</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./juguetes.html"><i class="fas fa-bone"></i> JUGUETES</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./farmacia.html"><i class="fas fa-first-aid"></i> FARMACIA</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./contacto.html"><i class="fas fa-file-signature"></i> CONTACTENOS</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <main class="row card-body">
+            <div class="card col-12 col-sm-6 col-md-3" v-for="juguete of juguetes">
+                <img :src="juguete.imagen" class="card-img-top" :alt="juguete.nombre">
+                <div class="card-body">
+                  <h5 class="card-title">{{juguete.nombre}}</h5>
+                  <p class="card-text">{{juguete.descripcion}}</p>
+                  <p class="card-text fw-bold">${{juguete.precio}}</p>
+                  <a href="#" class="btn btn-danger" v-if="juguete.stock<5">¡¡¡ULTIMAS UNIDADES!!!</a>
+                  <a href="#" class="btn btn-secondary" v-else>Comprar</a>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/vue@next"></script>
+<script src="./app.js"></script>
+</html>
